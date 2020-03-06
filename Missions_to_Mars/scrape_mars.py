@@ -4,8 +4,9 @@ from bs4 import BeautifulSoup
 import time
 
 def init_browser():
-    executable_path = {"executable_path": "C:/bin/chromedriver"}
+    executable_path = {"executable_path": "chromedriver"}
     browser = Browser("chrome", **executable_path, headless=False)
+
 
 def scrape():
     # NASA Mars News
@@ -13,12 +14,11 @@ def scrape():
     nasa_url = "https://mars.nasa.gov/news/"
     browser.visit(nasa_url)
     nasa_html = browser.html
-    soup = BeautifulSoup(nasa_html, "html.parser")
-    nasa_results = soup.find("ul", class_="item_list")
+    nasa_soup = BeautifulSoup(nasa_html, "html.parser")
+    nasa_results = nasa_soup.find("ul", class_="item_list")
     news_title = nasa_results.find("div", class_="content_title").text
     news_p = nasa_results.find("div", class_="article_teaser_body").text
-    print(news_title, news_p)
-    return(news_title, news_p)
+
 
     # # JPL Mars Space Images - Featured Image
     # mars_url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
