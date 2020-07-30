@@ -29,6 +29,10 @@ There is a root route `/` that will query my Mongo database and pass the mars da
 
 Finally I created a template HTML file called `index.html` that will take the mars data dictionary and display all of the data in the appropriate HTML elements. 
 
+## To run the application
+Run app.py file and open http://127.0.0.1:5000/ in your browser. Please click Scrape New Data to retrive the updated data.
+
+Website should look like below: 
 ![final_app_part1.png](Images/final_app_part1.png)
 ![final_app_part2.png](Images/final_app_part2.png)
 
